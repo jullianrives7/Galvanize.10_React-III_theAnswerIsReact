@@ -18,7 +18,7 @@ export default {
         },
         {
           id: 87702,
-          answer: "Noah\\'s Ark",
+          answer: "Noah's Ark",
           question:
             "Former astronaut James Irwin launched several expeditions in hopes of finding this on Mount Ararat",
           value: 400,

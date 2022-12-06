@@ -1,9 +1,12 @@
-import React from "react";
+import React, { useContext } from "react";
+import { gameContext } from "./App";
 
-const Scoreboard = (props) => {
+const Scoreboard = () => {
+  const { score } = useContext(gameContext);
+
   return (
     <div id="scoreboard" data-testid="scoreboard">
-      ${props.score}
+      ${score}
     </div>
   );
 };
