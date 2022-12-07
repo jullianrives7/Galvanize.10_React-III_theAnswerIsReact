@@ -7,23 +7,18 @@ import data from "../testdata.js";
 const App = () => {
   const [categories, setCategories] = useState(data.categories);
   const [currentQuestion, setCurrentQuestion] = useState({});
-  const [currentQuestionValue, setCurrentQuestionValue] = useState(0);
-  const [currentAnswer, setCurrentAnswer] = useState({});
-  const [userAnswer, setUserAnswer] = useState({});
+  const [userResponse, setUserResponse] = useState({});
   const [answeredQuestions, setAnsweredQuestions] = useState([]);
   const [score, setScore] = useState(0);
   const [inputHiddenState, setInputHiddenState] = useState(true);
+
   const contextData = {
     categories,
     setCategories,
     currentQuestion,
     setCurrentQuestion,
-    currentQuestionValue,
-    setCurrentQuestionValue,
-    currentAnswer,
-    setCurrentAnswer,
-    userAnswer,
-    setUserAnswer,
+    userResponse,
+    setUserResponse,
     answeredQuestions,
     setAnsweredQuestions,
     score,

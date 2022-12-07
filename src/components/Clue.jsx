@@ -4,31 +4,15 @@ import { gameContext } from "./App";
 const Clue = (props) => {
   const {
     setCurrentQuestion,
-    setCurrentAnswer,
-    setCurrentQuestionValue,
-    setInputHiddenState,
     setAnsweredQuestions,
     answeredQuestions,
+    setInputHiddenState,
   } = useContext(gameContext);
 
   function clueSelected() {
-    console.log(
-      "clicked " +
-        props.clue_id +
-        " from category " +
-        "'" +
-        props.parent_category +
-        "'"
-    );
-    console.log("Question Expected: ", props.clue.question);
-    console.log("Answer Expected: ", props.clue.answer);
-    console.log("Current Question Value: $", props.clue.value);
-    setCurrentQuestion({ question: props.clue.question });
-    setCurrentAnswer({ answer: props.clue.answer });
-    setCurrentQuestionValue(props.clue.value);
-    setInputHiddenState(false);
+    setCurrentQuestion(props.clue);
     setAnsweredQuestions([...answeredQuestions, props.clue.question]);
-    console.log("answered questions: ", answeredQuestions);
+    setInputHiddenState(false);
   }
 
   if (answeredQuestions.includes(props.clue.question)) {
@@ -40,7 +24,7 @@ const Clue = (props) => {
         data-testid={props.clue_id + " " + props.parent_category}
         onClick={clueSelected}
       >
-        {"$" + props.clue.value}
+        ${props.clue.value}
       </div>
     );
   }

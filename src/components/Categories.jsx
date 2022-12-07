@@ -10,15 +10,9 @@ const Categories = () => {
     <div id="categories" data-testid="categoryList">
       {categories.map((category, i) => {
         return (
-          <Category
-            key={i}
-            category_id={"category_" + i}
-            category_title={category.title}
-            category_clues={category.clues}
-          />
+          <Category key={i} category={category} category_id={"category_" + i} />
         );
       })}
-      {/* display all the categories */}
     </div>
   );
 };

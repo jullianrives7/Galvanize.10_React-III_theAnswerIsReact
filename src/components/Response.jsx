@@ -1,12 +1,11 @@
-import React, { useState, useContext } from "react";
+import React, { useContext } from "react";
 import { gameContext } from "./App";
 
 const Response = (props) => {
   const {
-    setUserAnswer,
-    userAnswer,
-    currentAnswer,
-    currentQuestionValue,
+    currentQuestion,
+    userResponse,
+    setUserResponse,
     setScore,
     score,
     setCurrentQuestion,
@@ -15,30 +14,17 @@ const Response = (props) => {
   } = useContext(gameContext);
 
   const recordResponse = (event) => {
-    // Implement record response
-    setUserAnswer({ answer: event.target.value });
+    setUserResponse(event.target.value);
   };
 
   const submitResponse = (event) => {
     if (event.key === "Enter") {
-      console.log("enter pressed, user answer: ", userAnswer.answer);
-      console.log("expected answer: ", currentAnswer.answer);
-      if (
-        currentAnswer.answer.toLowerCase() === userAnswer.answer.toLowerCase()
-      ) {
-        setScore(score + currentQuestionValue);
-        console.log("Correct! Current question value: ", currentQuestionValue);
-        console.log("Returning user back to game board");
-      } else {
-        setScore(score - currentQuestionValue);
-        console.log("Wrong answer! Returning user back to gameboard");
-      }
+      currentQuestion.answer.toLowerCase() === userResponse.toLowerCase()
+        ? setScore(score + currentQuestion.value)
+        : setScore(score - currentQuestion.value);
       setCurrentQuestion({});
       setInputHiddenState(true);
     }
-    // this function should fire when the user fills the response and hits 'enter'
-    // Is the user response correct?
-    // yes/no? What should happen?
   };
 
   return (
@@ -49,8 +35,6 @@ const Response = (props) => {
         onChange={recordResponse}
         onKeyPress={submitResponse}
         hidden={inputHiddenState}
-        // handle data change
-        // handle when 'enter' is hit
       />
     </div>
   );
