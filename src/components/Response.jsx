@@ -24,6 +24,7 @@ const Response = (props) => {
         : setScore(score - currentQuestion.value);
       setCurrentQuestion({});
       setInputHiddenState(true);
+      event.target.value = "";
     }
   };
 

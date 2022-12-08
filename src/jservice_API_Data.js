@@ -5,13 +5,13 @@ async function getCategories() {
   let categoriesToDisplay = [];
   let results = await fetch(
     ApiUrl +
-      `/api/categories?count=10&offset=${Math.floor(Math.random() * 1000)}`
+      `/api/categories?count=100&offset=${Math.floor(Math.random() * 2000)}`
   );
   let data = await results.json();
   let i = 0;
 
   while (categoriesToDisplay.length < 5) {
-    if (data[i].clues_count >= 5) {
+    if (data[i].clues_count >= 25) {
       categoriesToDisplay.push(data[i]);
     }
     i++;
