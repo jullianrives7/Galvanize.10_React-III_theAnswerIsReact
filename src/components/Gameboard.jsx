@@ -10,7 +10,12 @@ const Gameboard = () => {
       data-testid="gameboard"
       id={currentQuestion.question ? "question" : "gameboard"}
     >
-      {currentQuestion.question ? currentQuestion.question : <Categories />}
+      {currentQuestion.question ? (
+        currentQuestion.question +
+        console.log("Expected answer: ", currentQuestion.answer)
+      ) : (
+        <Categories />
+      )}
     </div>
   );
 };

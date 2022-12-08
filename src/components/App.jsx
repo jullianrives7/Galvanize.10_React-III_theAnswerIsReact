@@ -1,8 +1,10 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import Gameboard from "./Gameboard.jsx";
 import Scoreboard from "./Scoreboard.jsx";
 import Response from "./Response.jsx";
+import ApiQuestionsButton from "./ApiQuestionsBtn.jsx";
 import data from "../testdata.js";
+import { returnApiData } from "../jservice_API_Data.js";
 
 const App = () => {
   const [categories, setCategories] = useState(data.categories);
@@ -11,6 +13,7 @@ const App = () => {
   const [answeredQuestions, setAnsweredQuestions] = useState([]);
   const [score, setScore] = useState(0);
   const [inputHiddenState, setInputHiddenState] = useState(true);
+  const [apiData, setApiData] = useState();
 
   const contextData = {
     categories,
@@ -25,7 +28,16 @@ const App = () => {
     setScore,
     inputHiddenState,
     setInputHiddenState,
+    apiData,
+    setApiData,
   };
+
+  useEffect(() => {
+    console.log("testdata: ", categories);
+    returnApiData().then((data) => {
+      setApiData(data);
+    });
+  }, []);
 
   return (
     <gameContext.Provider value={{ ...contextData }}>
@@ -33,6 +45,7 @@ const App = () => {
         <Gameboard />
         <Scoreboard />
         <Response />
+        <ApiQuestionsButton />
       </div>
     </gameContext.Provider>
   );

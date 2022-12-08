@@ -49,7 +49,7 @@ ul {
 }
 
 .categoryTitle,
-.clueValue,
+.clueValue, #api-questions-btn,
 #scoreboard {
   border: 1px solid black;
   display: flex;
@@ -88,6 +88,18 @@ ul {
   height: 74px;
   color: white;
   font-size: 3em;
+}
+
+#api-questions-btn {
+  background-color: var(--jepColor);
+  border: 4px solid black;
+  grid-column: 11;
+  align-self: center;
+  width: 200px;
+  height: 74px;
+  color: white;
+  font-size: 2em;
+  text-align: center;
 }
 
 #response {

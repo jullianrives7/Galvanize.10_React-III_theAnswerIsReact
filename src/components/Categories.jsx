@@ -4,7 +4,7 @@ import { gameContext } from "./App";
 
 const Categories = () => {
   const { categories } = useContext(gameContext);
-  console.log(categories);
+  // console.log(categories);
 
   return (
     <div id="categories" data-testid="categoryList">
